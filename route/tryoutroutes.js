@@ -3,5 +3,5 @@ const express = require('express');
 
 const rout = express. Router();
 
-rout. rout('/').get(readalltryout).post(createtryout);
-rout.rout('/:id').get(readtryou).post(updatetryout)
+route. route('/').get(readalltryout).post(createtryout);
+route.route('/:id').get(readtryou).post(updatetryout)
