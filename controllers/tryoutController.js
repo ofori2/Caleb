@@ -1,18 +1,17 @@
 const {Tryout} = require('./model/tryout.js');
 
 
-// read all Tryout(GET REQUEST)
-const readAlltryout = async (reg,res) =>{
-try {
-  const tryout = await tryout.find({}); 
-  return res.status(200).json({
-    success: true,
-    message:'All tryout found successfully',
-    data: tryout
+// read all Person(GET REQUEST)
+const readAllperson = async (reg,res) =>{
 
+try {
+  const person = await tryout.find({}); 
+  return res.status(200).json({
+    sucess: true,
+    message:'All person found successfully',
+    data: person
 
   })
-  
   
 
 } catch (error) {
@@ -23,65 +22,80 @@ try {
 }
 
 
-// read a tryout(GET REQUEST)
-const readtryout= async(req, res) => {
+// read a person(READ REQUEST)
+const readperson= async(req, res) => {
     try {
+        const person=await person.findbyid(req.person.id);
+        res.status(200).json({
+            sucess:true,
+            message:'person found successfully',
+            data:person
+
+        })
         
     } catch (error) {
-        console.log(`oops! faild to get info on tryout: ${error}`);
-        res.status(400). send(`oops! faild to get info on tryout:${error}`);
+        console.log(`oops! faild to get info on person: ${error}`);
+        res.status(400). send(`oops! faild to get info on person:${error}`);
 
     }
 
 }
 
-// create a tryout(POST REQUEST)
- const createtryout= async(req, res) =>{
+// create a person(CREATE REQUEST)
+ const createperson= async(req, res) =>{
     try {
-        const newtryout = await tryout.create
+        const newperson = await person.create({...req.body});
+        res.status(200).json({
+            sucess:true,
+            message:('person successfully created'),
+            data:newperson
+        })
         
     } catch (error) {
-        console. log(`oops! fails to create tryout:${error}`);
+        console. log(`oops! fails to create person:${error}`);
         res.status(400). send(`faild to create person:${error}`);
         
     }
 
  }
-//  update a tryout(PUT/PUTCH REQUEST)
-const updatetryout = async(req, res) => {
+//  update a person(PUT/PATCH REQUEST)
+    const updatedPerson = async(request, response)=>{
+
+    }
     try {
-        const updatedtryout= await tryout.findByIdAndUpdate(req.params.id, {...req.body});
+        const updatedperson= await person.findbyIdAndUpdate(req.params.id, {...req.body});
+        res.status(200).json({
+            sucess:true,
+            message:('person successfully updated'),
+            data: upadatedPerson
+        })
         
     } catch (error) {
-        console.log(`oops! failed to update tryout:${error}`);
-        res.status(400). send(`faild to create tryout:${error}`);
+        console.log(`oops! failed to update person:${error}`);
+        res.status(400). send(`faild to create person:${error}`);
         
         
     }
-    // delete a tryout(DELET REQUEST)
-    const deletryout = async(req, res) =>{
- try {
     
- } catch (error) {
+     
+
     
+ 
+
+
+
+
+
+
+
+
+
+
+ module.export = {
+    readAllperson
+    readperson
+    createperson
+    upadatperson
+    deleteperson
+
  }
-    }
-
-}
-
-
-
-
-
-
-
-//  module.export = {
-//     readAlltryout
-//     readtryout
-//     createtryout
-//     updatetryout
-//     delettryou
-
-
-//  }
-

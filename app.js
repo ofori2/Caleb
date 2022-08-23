@@ -34,11 +34,11 @@ app.listen(port,()=>{
 
 
 
-dotenv.config();
+// dotenv.config();
 
-const db = process.env.DB_URL;
+// const db = process.env.DB_URL;
 
-connetTodatabase();
+// connetTodatabase();
 
 
 
